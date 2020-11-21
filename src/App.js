@@ -1,22 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import List from './List';
 
 function App() {
+  const [currentItem, setCurrentItem] = useState('');
+  const [itemList, updateItemList] = useState([]);
+
+  const onChangeHandler = (e) => {
+    setCurrentItem(e.target.value);
+  };
+
+  const addItem = () => {
+    updateItemList([...itemList, { item: currentItem, key: Date.now() }]);
+    setCurrentItem('');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <h3>Never Miss A Task</h3>
+        <div className='wrapper'>
+          <div className='input-wrapper'>
+            <input value={currentItem} onChange={onChangeHandler} />
+            <button onClick={addItem}>+</button>
+          </div>
+          <List itemList={itemList} updateItemList={updateItemList} />
+        </div>
       </header>
     </div>
   );

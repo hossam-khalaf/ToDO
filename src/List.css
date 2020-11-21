@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgb(92, 88, 88);
+  padding: 10px 9px;
+  height: 35px;
+  margin-top: 20px;
+  color: #eee;
+  border-radius: 5px;
+}
+.item:hover {
+  border-color: rgb(201, 178, 178);
+  background: rgb(70, 67, 67);
+}
+.item button {
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  font-size: large;
+  border-radius: 50%;
+  background: tomato;
+  color: #fff;
+  border: none;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.507);
+}
